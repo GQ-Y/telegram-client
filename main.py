@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from app.core.middleware import ResponseMiddleware
+from fastapi.responses import JSONResponse
+from typing import Any, Dict
 
 # 创建FastAPI应用
 app = FastAPI(
@@ -7,9 +10,10 @@ app = FastAPI(
     version="1.0.0",
     docs_url="/docs",
     redoc_url="/redoc",
+    default_response_class=JSONResponse
 )
 
-# 添加CORS中间件
+# 添加中间件
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,7 +26,10 @@ app.add_middleware(
 from app.api import auth
 
 # 注册路由
-app.include_router(auth.router, prefix="/api/v1", tags=["认证"])
+app.include_router(auth.router, prefix="/api/v1/auth", tags=["认证"])
+
+# 最后添加响应中间件
+app.add_middleware(ResponseMiddleware)
 
 if __name__ == "__main__":
     import uvicorn
