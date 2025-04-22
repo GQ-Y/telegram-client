@@ -358,18 +358,33 @@ class ErrorCode:
 ```
 project/
 ├── app/
-│   ├── api/           # API 路由
-│   ├── core/          # 核心配置
-│   ├── db/            # 数据库相关
-│   ├── models/        # 数据模型
-│   ├── schemas/       # Pydantic 模型
-│   ├── services/      # 业务逻辑
-│   └── utils/         # 工具函数
-├── migrations/        # 数据库迁移
-├── tests/            # 测试代码
-├── alembic.ini       # Alembic 配置
-├── main.py           # 应用入口
-└── requirements.txt  # 依赖管理
+│   ├── api/           # API 接口层
+│   ├── controllers/   # 控制器逻辑
+│   ├── core/         # 核心配置
+│   ├── db/           # 数据库相关
+│   ├── middlewares/  # 中间件
+│   ├── models/       # 数据模型
+│   ├── routes/       # 路由定义
+│   ├── schemas/      # Pydantic 模型
+│   ├── services/     # 业务服务层
+│   ├── templates/    # 模板文件
+│   └── utils/        # 工具函数
+├── docker/          # Docker 相关配置
+│   ├── mysql/       # MySQL 配置
+│   │   ├── init/    # 初始化脚本
+│   │   └── data/    # 数据存储
+│   └── redis/       # Redis 配置
+│       └── data/    # 数据存储
+├── migrations/      # 数据库迁移
+├── tests/          # 测试代码
+├── venv/           # Python 虚拟环境
+├── .env            # 环境变量配置
+├── .gitignore      # Git 忽略文件
+├── alembic.ini     # Alembic 配置
+├── docker-compose.yml # Docker 编排配置
+├── main.py         # 应用入口
+├── requirements.txt # 依赖管理
+└── system-architecture.md # 系统架构文档
 ```
 
 ## 11. 开发规范

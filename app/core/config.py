@@ -12,12 +12,12 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api/v1"
     
     # 数据库配置
-    MYSQL_HOST: str = os.getenv("MYSQL_HOST", "localhost")
-    MYSQL_PORT: int = int(os.getenv("MYSQL_PORT", "3306"))
-    MYSQL_USER: str = os.getenv("MYSQL_USER", "root")
-    MYSQL_PASSWORD: str = os.getenv("MYSQL_PASSWORD", "")
-    MYSQL_DATABASE: str = os.getenv("MYSQL_DATABASE", "telegram_client")
-    SQLALCHEMY_DATABASE_URL: str = f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DATABASE}"
+    DB_HOST: str = os.getenv("DB_HOST", "localhost")
+    DB_PORT: int = int(os.getenv("DB_PORT", "3306"))
+    DB_USER: str = os.getenv("DB_USER", "root")
+    DB_PASSWORD: str = os.getenv("DB_PASSWORD", "")
+    DB_NAME: str = os.getenv("DB_NAME", "telegram_client")
+    SQLALCHEMY_DATABASE_URL: str = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
     
     # Redis配置
     REDIS_HOST: str = os.getenv("REDIS_HOST", "localhost")
